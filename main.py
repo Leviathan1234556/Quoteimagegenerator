@@ -57,7 +57,7 @@ def display_image():
     global image_number
     global imgno
     for i in range(3):
-        url = 'https://api.unsplash.com/photos/random?query=explore&client_id={ACCESS_KEY}w'
+        url = 'https://api.unsplash.com/photos/random?query=explore&client_id={ACCESS_KEY}'
         try:
             data = requests.get(url).json()
         except json.decoder.JSONDecodeError as e:
