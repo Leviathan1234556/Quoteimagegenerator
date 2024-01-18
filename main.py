@@ -35,8 +35,8 @@ def add_black_overlay(image, transparency):
 def add_text_to_image(img, text,text2, font_size=50, text_color=(255, 255, 255)):
     W,H = img.width, img.height
     draw = ImageDraw.Draw(img)
-    font1 = ImageFont.truetype('D:/Lato2OFLWeb/Lato2OFLWeb/LatoLatin/fonts/LatoLatin-Heavy.ttf', font_size)
-    font2 = ImageFont.truetype('D:/Lato2OFLWeb/Lato2OFLWeb/LatoLatin/fonts/LatoLatin-Heavy.ttf', 50)
+    font1 = ImageFont.truetype('LatoLatin-Heavy.ttf', font_size)
+    font2 = ImageFont.truetype('LatoLatin-Heavy.ttf', 50)
     wrapped_text = textwrap.fill(text, width=40)
     text_bbox1 = draw.textbbox((0,0), text2, font=font2)
     lines = wrapped_text.split('\n')  
@@ -57,7 +57,7 @@ def display_image():
     global image_number
     global imgno
     for i in range(3):
-        url = 'https://api.unsplash.com/photos/random?query=explore&client_id=nv-lPnJs3mE5UX3IXOT6eV9gg70rChrvQQRBnyk16dw'
+        url = 'https://api.unsplash.com/photos/random?query=explore&client_id={ACCESS_KEY}w'
         try:
             data = requests.get(url).json()
         except json.decoder.JSONDecodeError as e:
@@ -85,7 +85,7 @@ def post_to_instagram():
     caption = "Embark on a journey of self-discovery through daily reflections and profound wisdom 🌟✨ Consider joining our community for a consistent source of inspiration, positive vibes, and thoughtful moments. Let's explore the depths of insight together. 🚀💖 #Quoteflections #InspirationJourney"
     bot = Bot()
     image_path = 'random_image0.jpeg'
-    bot.login(username='quoteflections', password='Dailyquotes2005')
+    bot.login(username='{username}', password='{password}')
     for i in range(3):
         path = f'random_image{i}.jpeg.REMOVE_ME' 
         if os.path.exists(path):
